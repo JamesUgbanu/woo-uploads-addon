@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Woocommerce Upload Add-on
+Plugin Name: Upload Add-on for Woocommerce
 Plugin URI: https://crystalwebpro.com/open-source/
 Description: Enable customer to upload image before adding to cart
 Author: James Ugbanu

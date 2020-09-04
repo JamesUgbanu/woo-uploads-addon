@@ -1,13 +1,16 @@
-=== WooCommerce Uploads Addon ===
-Contributors: James Ugbanu
+=== Upload Add-on for Woocommerce ===
+Contributors: crystalwebpro
+Donate link: https://crystalwebpro.com/
 Tags: woocommerce, addon, uploads, woocommerce file upload, file upload
-Requires at least: 1.0.0
+Author URI: https://crystalwebpro.com/
+Requires at least: 4.4
 Tested up to: 5.6
-Stable tag: trunk
+Requires PHP: 5.6
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WooCommerce Uploads Addon
+Upload Add-on for Woocommerce
 
 == Description ==
 
@@ -29,6 +32,9 @@ In the search field type "WooCommerce Uploads Addon" and click Search Plugins. O
 
 The manual installation method involves downloading our eCommerce plugin and uploading it to your webserver via your favourite FTP application. The WordPress codex contains [instructions on how to do this here](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
 
+== Frequently Asked Questions ==
+= How do I use it? = 
+
 == Screenshots ==
 
 1. WooCommerce Upload Addon Admin Settings
@@ -41,8 +47,6 @@ The manual installation method involves downloading our eCommerce plugin and upl
 
 = 1.0.0 =
 * Initial Launch Version
-
-== Frequently Asked Questions ==
 
 == Upgrade Notice ==
 
