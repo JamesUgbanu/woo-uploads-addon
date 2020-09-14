@@ -7,7 +7,9 @@ Author: James Ugbanu
 Text Domain: woo_ua
 Author URI: https://crystalwebpro.com
 License: GPL2
-Version: 1.0
+Version: 1.1.1
+* WC requires at least: 4.2.0
+ * WC tested up to: 4.5.1
 */
 
 /*  Copyright 2020 James Ugbanu

@@ -23,7 +23,7 @@
 				'id'            => '_woo_ua_field', 
 				'label'         => __( 'Enable', 'my_text_domain' ),
 				'description'   => __( 'Enable Woocommerce Upload on this product', 'my_text_domain' ),
-				'default'       => '0',
+				'default'       => '1',
 				'desc_tip'      => true,
 			) );
 			?>

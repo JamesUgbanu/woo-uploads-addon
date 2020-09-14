@@ -33,13 +33,16 @@ function display_woo_ua_product_fields(){
 add_filter('woocommerce_product_single_add_to_cart_text', 'woocommerce_woo_ua__add_to_cart_text');
  
 function woocommerce_woo_ua__add_to_cart_text() {
+		global $product;
+        $id = $product->get_id();
     // get options
     	wp_cache_flush();
 		$options = get_option("woo_ua_options");
 		$woo_ua_enable = $options['woo_ua_enable'];
 		$woo_ua_cart_btn = $options['woo_ua_cart_btn'];
+		$woo_ua_field = get_post_meta($id, "_woo_ua_field", true);
 		
-		if($woo_ua_enable) {
+		if($woo_ua_enable && $woo_ua_field == 'yes') {
 		    if(!empty($woo_ua_cart_btn)) {
 		        return __($woo_ua_cart_btn, 'woocommerce');
 		    }
@@ -55,8 +58,10 @@ function add_custom_fields_data_as_woo_ua_cart_item_data( $cart_item_meta, $prod
     // get options
     	wp_cache_flush();
 		$options = get_option("woo_ua_options");
+		$woo_ua_enable = $options['woo_ua_enable'];
 		$woo_ua_file_size = $options['woo_ua_file_size'];
-		
+		$woo_ua_field = get_post_meta($product_id, "_woo_ua_field", true);
+
 		if($woo_ua_file_size == '1') {
 		    $max_image_size = 1000 * 1000; // 1 MB (approx)
 		} elseif($woo_ua_file_size == '2') {
@@ -70,7 +75,7 @@ function add_custom_fields_data_as_woo_ua_cart_item_data( $cart_item_meta, $prod
 		}
 
 	$addon_id = array();
-
+	if($woo_ua_enable && $woo_ua_field == 'yes') {
 	if( isset( $_FILES ) && isset( $_FILES['wua_file_addon'] ) && $_FILES['wua_file_addon']['name'] !== '' && $_FILES['wua_file_addon']['size'] <= $max_image_size){
 	    
 	    // Allowed image types
@@ -95,6 +100,7 @@ function add_custom_fields_data_as_woo_ua_cart_item_data( $cart_item_meta, $prod
 	}
 
 	return $cart_item_meta;
+	}
 }
 
 add_filter( 'woocommerce_get_cart_item_from_session', 'wua_get_cart_item_from_session', 10, 2 );
@@ -113,7 +119,6 @@ function display_woo_ua_item_data( $cart_item_data, $cart_item ) {
 		foreach ( $cart_item['wua_addon_ids'] as $addon_id ) {
 			$name    = __( 'Uploaded File', 'woo-addon-uploads' );
 			$display = $addon_id['media_id'];
-			print_r();
 			$cart_item_data[] = array(
 				'name'    => $name,
 				'display' => wp_get_attachment_image( $display, 'thumbnail', 'true', '' )
